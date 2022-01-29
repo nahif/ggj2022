@@ -9,11 +9,10 @@ var vel : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var timer = Timer.new()
+	add_child(timer)
 	timer.autostart = true
 	timer.start(1)
 	timer.connect("timeout", self, "_jump")
-	add_child(timer)
-	pass # Replace with function body.
 
 func _jump():
 	vel = Vector2.RIGHT * velocity

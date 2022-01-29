@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Referencia.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Captura.PNG" type="Texture" id=2]
-[ext_resource path="res://scenes/PinguMom.gd" type="Script" id=3]
+[ext_resource path="res://scripts/PinguMom.gd" type="Script" id=3]
+[ext_resource path="res://scripts/FishFactory.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/fishes/pez 3pt.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/fishes/pez 5pt.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/fishes/pez 1pt.png" type="Texture" id=8]
+[ext_resource path="res://scenes/enemy1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/EnemyFactory.gd" type="Script" id=10]
+[ext_resource path="res://assets/sprites/enemies/enemigo 1.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.9487
@@ -10,6 +18,7 @@ radius = 38.9487
 [node name="PinguMomScene" type="Node2D"]
 
 [node name="Ppp" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="PinguMom" type="Area2D" parent="."]
 position = Vector2( 93, 213 )
@@ -26,3 +35,41 @@ position = Vector2( 39, 316 )
 
 [node name="PositionMinHeight" type="Position2D" parent="."]
 position = Vector2( 39, 97 )
+
+[node name="FishFactory" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="FishFactory"]
+autostart = true
+
+[node name="Fish1" parent="FishFactory" instance=ExtResource( 5 )]
+position = Vector2( 1118, -220 )
+texture = ExtResource( 8 )
+
+[node name="Fish3" parent="FishFactory" instance=ExtResource( 5 )]
+position = Vector2( 1160, -108 )
+fishValue = 3
+texture = ExtResource( 6 )
+
+[node name="Fish5" parent="FishFactory" instance=ExtResource( 5 )]
+position = Vector2( 980, -190 )
+fishValue = 5
+texture = ExtResource( 7 )
+
+[node name="PositionRender" type="Position2D" parent="."]
+position = Vector2( 1080, 159 )
+
+[node name="EnemyFactory" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Enemy" parent="EnemyFactory" instance=ExtResource( 9 )]
+position = Vector2( 737, -177 )
+texture = ExtResource( 11 )
+
+[node name="Timer" type="Timer" parent="EnemyFactory"]
+wait_time = 3.595
+autostart = true
+
+[connection signal="area_entered" from="PinguMom" to="PinguMom" method="_on_PinguMom_area_entered"]
+[connection signal="timeout" from="FishFactory/Timer" to="FishFactory" method="_on_Timer_timeout"]
+[connection signal="timeout" from="EnemyFactory/Timer" to="EnemyFactory" method="_on_Timer_timeout"]
