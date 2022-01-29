@@ -100,26 +100,42 @@ centered = false
 flip_h = true
 script = ExtResource( 60 )
 
+[node name="Nube" type="Sprite" parent="Background"]
+position = Vector2( 0, 340 )
+texture = ExtResource( 58 )
+centered = false
+script = ExtResource( 60 )
+speed = 158
+
 [node name="Glacial" type="Sprite" parent="Background"]
 position = Vector2( 0, 329 )
 texture = ExtResource( 56 )
 centered = false
 script = ExtResource( 60 )
+speed = 22
 
 [node name="Glacial2" type="Sprite" parent="Background"]
-position = Vector2( 0, 329 )
+position = Vector2( 1100, 329 )
 texture = ExtResource( 56 )
 centered = false
+flip_h = true
+script = ExtResource( 60 )
+speed = 22
 
 [node name="Nieve" type="Sprite" parent="Background"]
 position = Vector2( 0, 329 )
 texture = ExtResource( 59 )
 centered = false
+script = ExtResource( 60 )
+speed = 100
 
-[node name="Nube" type="Sprite" parent="Background"]
-position = Vector2( 0, 329 )
-texture = ExtResource( 58 )
+[node name="Nieve2" type="Sprite" parent="Background"]
+position = Vector2( 1100, 329 )
+texture = ExtResource( 59 )
 centered = false
+flip_h = true
+script = ExtResource( 60 )
+speed = 100
 
 [node name="Ppp" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -139,7 +155,6 @@ script = ExtResource( 2 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 13
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinguDad"]

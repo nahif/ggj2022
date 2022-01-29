@@ -15,8 +15,7 @@ var actual_damage_time = 0
 
 var points = 0
 signal new_point(value)
-signal no_life()
-signal damage(value)
+signal damage
 
 func _ready():
 	set_physics_process(true)
@@ -44,6 +43,6 @@ func _on_PinguMom_area_entered(area):
 		actual_damage_time = damage_time
 		life -= damage
 		is_damage = true
-		emit_signal("damage", life)
+		emit_signal("damage")
 	area.get_parent().remove_child(area)
 

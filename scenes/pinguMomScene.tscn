@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Referencia.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/Captura.PNG" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://scenes/enemy1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/EnemyFactory.gd" type="Script" id=10]
 [ext_resource path="res://assets/sprites/enemies/enemigo 1.png" type="Texture" id=11]
+[ext_resource path="res://scripts/Background.gd" type="Script" id=12]
+[ext_resource path="res://assets/sprites/background/mumBackground/Fondo juego 2 (mar).png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/background/mumBackground/Juego 2 Fondo (cielo).png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/background/mumBackground/Fondo juego 2 (Nube).png" type="Texture" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.9487
@@ -19,6 +23,47 @@ radius = 38.9487
 
 [node name="Ppp" parent="." instance=ExtResource( 1 )]
 visible = false
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite" parent="Background"]
+texture = ExtResource( 14 )
+centered = false
+script = ExtResource( 12 )
+
+[node name="Sky2" type="Sprite" parent="Background"]
+position = Vector2( 1100, 0 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+script = ExtResource( 12 )
+
+[node name="Nube" type="Sprite" parent="Background"]
+texture = ExtResource( 15 )
+centered = false
+script = ExtResource( 12 )
+speed = 35
+
+[node name="Nube2" type="Sprite" parent="Background"]
+position = Vector2( 1100, 0 )
+texture = ExtResource( 15 )
+centered = false
+script = ExtResource( 12 )
+speed = 35
+
+[node name="Oceano" type="Sprite" parent="Background"]
+texture = ExtResource( 13 )
+centered = false
+script = ExtResource( 12 )
+speed = 55
+
+[node name="Oceano2" type="Sprite" parent="Background"]
+position = Vector2( 1100, 0 )
+texture = ExtResource( 13 )
+centered = false
+flip_h = true
+script = ExtResource( 12 )
+speed = 55
 
 [node name="PinguMom" type="Area2D" parent="."]
 position = Vector2( 93, 213 )
@@ -31,10 +76,10 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="PositionMaxHeight" type="Position2D" parent="."]
-position = Vector2( 39, 316 )
+position = Vector2( 39, 311 )
 
 [node name="PositionMinHeight" type="Position2D" parent="."]
-position = Vector2( 39, 97 )
+position = Vector2( 39, 132 )
 
 [node name="FishFactory" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -43,16 +88,16 @@ script = ExtResource( 4 )
 autostart = true
 
 [node name="Fish1" parent="FishFactory" instance=ExtResource( 5 )]
-position = Vector2( 1118, -220 )
+position = Vector2( 1369, 665 )
 texture = ExtResource( 8 )
 
 [node name="Fish3" parent="FishFactory" instance=ExtResource( 5 )]
-position = Vector2( 1160, -108 )
+position = Vector2( 1202, 635 )
 fishValue = 3
 texture = ExtResource( 6 )
 
 [node name="Fish5" parent="FishFactory" instance=ExtResource( 5 )]
-position = Vector2( 980, -190 )
+position = Vector2( 1080, 635 )
 fishValue = 5
 texture = ExtResource( 7 )
 
@@ -63,7 +108,7 @@ position = Vector2( 1080, 159 )
 script = ExtResource( 10 )
 
 [node name="Enemy" parent="EnemyFactory" instance=ExtResource( 9 )]
-position = Vector2( 737, -177 )
+position = Vector2( 961, 665 )
 texture = ExtResource( 11 )
 
 [node name="Timer" type="Timer" parent="EnemyFactory"]

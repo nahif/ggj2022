@@ -10,7 +10,7 @@ var damage = 10
 var life = 100
 var is_being_damaged = false
 
-signal is_been_damage(actual_life)
+signal is_been_damage
 
 func _input(event):
 	if event.is_action_pressed("ui_right"):
@@ -37,7 +37,7 @@ func _on_PinguDad_area_entered(area):
 		vel = Vector2.RIGHT * damage_jump
 	life -= damage
 	$AnimatedSprite.play("hit")
-	emit_signal("is_been_damage", life)
+	emit_signal("is_been_damage")
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation != "idle":
