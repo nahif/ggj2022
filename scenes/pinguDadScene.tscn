@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://assets/sprites/pinguDad/idle/Render Papa Idel_00016.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PinguDad.gd" type="Script" id=2]
@@ -54,6 +54,12 @@
 [ext_resource path="res://assets/sprites/pinguDad/hit/Render Papa Hit_00005.png" type="Texture" id=52]
 [ext_resource path="res://assets/sprites/pinguDad/hit/Render Papa Hit_00006.png" type="Texture" id=53]
 [ext_resource path="res://assets/sprites/pinguDad/hit/Render Papa Hit_00009.png" type="Texture" id=54]
+[ext_resource path="res://scripts/PinguDadScene.gd" type="Script" id=55]
+[ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (Glacial).png" type="Texture" id=56]
+[ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (cielo).png" type="Texture" id=57]
+[ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (Nube).png" type="Texture" id=58]
+[ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (Nieve).png" type="Texture" id=59]
+[ext_resource path="res://scripts/Background.gd" type="Script" id=60]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -77,29 +83,71 @@ animations = [ {
 radius = 38.1182
 
 [node name="PinguDadScene" type="Node2D"]
+script = ExtResource( 55 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 57 )
+centered = false
+script = ExtResource( 60 )
+
+[node name="Sky2" type="Sprite" parent="Background"]
+position = Vector2( 1100, 329 )
+texture = ExtResource( 57 )
+centered = false
+flip_h = true
+script = ExtResource( 60 )
+
+[node name="Glacial" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 56 )
+centered = false
+script = ExtResource( 60 )
+
+[node name="Glacial2" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 56 )
+centered = false
+
+[node name="Nieve" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 59 )
+centered = false
+
+[node name="Nube" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 58 )
+centered = false
 
 [node name="Ppp" parent="." instance=ExtResource( 3 )]
 visible = false
 
-[node name="PinguWall" parent="." instance=ExtResource( 4 )]
-position = Vector2( 94, 480 )
+[node name="PinguWallL" parent="." instance=ExtResource( 4 )]
+position = Vector2( 178, 480 )
 
-[node name="PinguWall2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 815, 480 )
+[node name="PinguWallR" parent="." instance=ExtResource( 4 )]
+position = Vector2( 899, 480 )
+is_right = true
 
 [node name="PinguDad" type="Area2D" parent="."]
-position = Vector2( 433, 503 )
+position = Vector2( 517, 491 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PinguDad"]
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 4
+frame = 13
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinguDad"]
 shape = SubResource( 1 )
 
+[node name="JumpTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="PinguDad" to="PinguDad" method="_on_PinguDad_area_entered"]
 [connection signal="animation_finished" from="PinguDad/AnimatedSprite" to="PinguDad" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]

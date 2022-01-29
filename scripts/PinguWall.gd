@@ -3,27 +3,30 @@ extends Node2D
 var constant_velocity = Vector2.LEFT * 60
 var velocity = 600
 var inertia = 9
-var timer_init = 0.9
 var vel : Vector2
+var second_animation_offset = 512 
+export(bool) var is_right
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var timer = Timer.new()
-	add_child(timer)
-	timer.autostart = true
-	timer.start(1)
-	timer.connect("timeout", self, "_jump")
+	if is_right:
+		$AnimatedSprite2.position.x += second_animation_offset
+	else:
+		$AnimatedSprite2.position.x -= second_animation_offset
 
-func _jump():
+func jump():
+	$AnimatedSprite.play("jump")
 	vel = Vector2.RIGHT * velocity
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + constant_velocity * delta + vel * delta
 	if vel.length() > 0:
 		vel = vel - (vel * inertia * delta)
-	pass
 
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.play("idle")
 
-func _on_PinguDad_area_exited(area):
-	pass # Replace with function body.
+func _on_PinguWallL_area_entered(area):
+	if is_right:
+		$AnimatedSprite.play("hitR")
+	else:
+		$AnimatedSprite.play("hitL")
