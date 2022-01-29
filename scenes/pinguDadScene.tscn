@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/pingudad.PNG" type="Texture" id=1]
+[ext_resource path="res://scripts/PinguDad.gd" type="Script" id=2]
+
+[node name="PinguDadScene" type="Node2D"]
+
+[node name="PinguDad" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PinguDad"]
+position = Vector2( 461, 83 )
+scale = Vector2( 0.801075, 0.886503 )
+texture = ExtResource( 1 )

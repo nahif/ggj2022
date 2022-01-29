@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/pengu.png" type="Texture" id=1]
+
+[node name="Game" type="Node"]
+
+[node name="Base" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.133333 )
+position = Vector2( 512, 300 )
+scale = Vector2( 1.21615, 1.0084 )
+texture = ExtResource( 1 )
