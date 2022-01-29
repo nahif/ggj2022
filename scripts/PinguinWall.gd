@@ -24,3 +24,7 @@ func _process(delta):
 	if vel.length() > 0:
 		vel = vel - (vel * inertia * delta)
 	pass
+
+
+func _on_PinguDad_area_exited(area):
+	pass # Replace with function body.
