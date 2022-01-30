@@ -18,9 +18,6 @@ func _input(event):
 		$bep.play()
 		global.go_to_scene_game()
 
-func _on_VideoPlayer_finished():
-	$VideoPlayer.play()
-
 func _on_Start_gui_input(event):
 	if (event is InputEventMouseButton && event.pressed && event.button_index == 1):
 		global.go_to_scene_game()
