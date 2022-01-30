@@ -10,9 +10,9 @@ export(SpriteFrames) var frames
 
 func _ready():
 	$Sprite.frames = frames
-	$Sprite.play("idle")
 
 func start(new_position):
+	$Sprite.play("idle")
 	position = new_position
 	is_moving = true
 

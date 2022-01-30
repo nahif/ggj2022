@@ -14,7 +14,9 @@ func _ready():
 		$AnimatedSprite2.position.x -= second_animation_offset
 
 func jump():
+	$cow.play()
 	$AnimatedSprite.play("jump")
+	$AnimatedSprite2.play("jump")
 	vel = Vector2.RIGHT * velocity
 
 func _process(delta):
@@ -24,9 +26,12 @@ func _process(delta):
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.play("idle")
+	$AnimatedSprite2.play("idle")
 
-func _on_PinguWallL_area_entered(area):
+func _on_PinguWallL_area_entered(_area):
 	if is_right:
 		$AnimatedSprite.play("hitR")
+		$AnimatedSprite2.play("hitR")
 	else:
 		$AnimatedSprite.play("hitL")
+		$AnimatedSprite2.play("hitL")

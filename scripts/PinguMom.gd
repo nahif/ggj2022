@@ -39,6 +39,7 @@ func _on_PinguMom_area_entered(area):
 	if area is Fish:
 		points += area.fishValue
 		emit_signal("new_point", points)
+		$uwu.play()
 	if area is Enemy && !is_damage:
 		actual_damage_time = damage_time
 		life -= damage

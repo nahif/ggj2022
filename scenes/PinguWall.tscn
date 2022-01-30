@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scripts/PinguWall.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/pinguWall/idle/Render Muro Idel_00021.png" type="Texture" id=2]
@@ -61,6 +61,7 @@
 [ext_resource path="res://assets/sprites/pinguWall/walk/Render Muro Walk_00061.png" type="Texture" id=59]
 [ext_resource path="res://assets/sprites/pinguWall/walk/Render Muro Walk_00063.png" type="Texture" id=60]
 [ext_resource path="res://assets/sprites/pinguWall/hitL/Render Muro Hit A_00001.png" type="Texture" id=61]
+[ext_resource path="res://assets/fx/cow.wav" type="AudioStream" id=62]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -69,14 +70,14 @@ animations = [ {
 "name": "idle",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 49 ), ExtResource( 61 ), ExtResource( 39 ), ExtResource( 56 ), ExtResource( 51 ), ExtResource( 43 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 50 ), ExtResource( 47 ) ],
-"loop": false,
-"name": "hitL",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 44 ), ExtResource( 58 ), ExtResource( 40 ), ExtResource( 59 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 54 ) ],
 "loop": false,
 "name": "jump",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 49 ), ExtResource( 61 ), ExtResource( 39 ), ExtResource( 56 ), ExtResource( 51 ), ExtResource( 43 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 50 ), ExtResource( 47 ) ],
+"loop": false,
+"name": "hitL",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 45 ), ExtResource( 52 ), ExtResource( 41 ), ExtResource( 57 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 38 ) ],
@@ -102,12 +103,16 @@ playing = true
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 24
+frame = 18
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.5, 11 )
 shape = SubResource( 1 )
+
+[node name="cow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 62 )
+volume_db = -34.75
 
 [connection signal="area_entered" from="." to="." method="_on_PinguWallL_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -6,9 +6,10 @@ var gameover = false
 
 func _ready():
 	$Music.play()
-	$PinguMomScene/PinguMom.connect("new_point", self, "_on_points_change")
-	$PinguMomScene/PinguMom.connect("damage", self, "_on_get_damage")
-	$PinguDadScene/PinguDad.connect("is_been_damage", self,"_on_get_damage" )
+	# se incluyen variables para sacar los warnings
+	var _c1 = $PinguMomScene/PinguMom.connect("new_point", self, "_on_points_change")
+	var _c2 = $PinguMomScene/PinguMom.connect("damage", self, "_on_get_damage")
+	var _c3 = $PinguDadScene/PinguDad.connect("is_been_damage", self,"_on_get_damage" )
 	set_process(false)
 
 func _process(delta):
@@ -18,7 +19,7 @@ func _on_Music_finished():
 	global.point = $PinguMomScene/PinguMom.points
 	remove_child($PinguDadScene)
 	remove_child($PinguMomScene)
-	get_tree().change_scene("res://Win.tscn")
+	var _cs1 = get_tree().change_scene("res://Win.tscn")
 
 func _on_points_change(value: int):
 	$Puntaje.text = "puntaje: " + str(value)
@@ -38,4 +39,4 @@ func _has_game_over():
 		set_process(true)
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://GameOver.tscn")
+	var _c1 = get_tree().change_scene("res://GameOver.tscn")

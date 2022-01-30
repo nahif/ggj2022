@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/PinguDadScene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/music/main_theme_ogg.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/main_theme_sin_vacas.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scenes/PinguMomScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fx/wukwukwuk.wav" type="AudioStream" id=4]
 [ext_resource path="res://scripts/Game.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/barra.png" type="Texture" id=6]
 [ext_resource path="res://assets/fx/agua.wav" type="AudioStream" id=7]
@@ -28,7 +29,7 @@ position = Vector2( 0, 269 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -24.47
+volume_db = -19.226
 autoplay = true
 
 [node name="Barra" type="Sprite" parent="."]
@@ -93,6 +94,11 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 527, 308 )
 scale = Vector2( 2.66867, 12.7353 )
 texture = ExtResource( 6 )
+
+[node name="wukwukwuk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -39.327
+autoplay = true
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

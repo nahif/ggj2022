@@ -22,6 +22,7 @@ func _ready():
 	randomize()
 
 func _create_enemy():
+	$metal.play()
 	var new_enemy = enemies[randi() % enemies.size()].duplicate()
 	new_enemy.start(Vector2(render_position, random.randi_range(min_position, max_position)))
 	add_child(new_enemy)

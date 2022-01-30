@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/erizo.wav-a00973b20f8ca923cf4578df76aa7cbe.sample"
+
+[deps]
+
+source_file="res://assets/fx/erizo.wav"
+dest_files=[ "res://.import/erizo.wav-a00973b20f8ca923cf4578df76aa7cbe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

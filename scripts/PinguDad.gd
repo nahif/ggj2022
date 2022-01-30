@@ -21,6 +21,7 @@ func _input(event):
 func _add_velocity(direction : Vector2):
 	vel = direction * velocity
 	$AnimatedSprite.play("jump")
+	$pandero.play()
 	$AnimatedSprite.frame = 0
 
 func _process(delta):
