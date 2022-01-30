@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/glup.ogg-e41a688fe16de1d526495641e11bc658.oggstr"
+
+[deps]
+
+source_file="res://assets/fx/glup.ogg"
+dest_files=[ "res://.import/glup.ogg-e41a688fe16de1d526495641e11bc658.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

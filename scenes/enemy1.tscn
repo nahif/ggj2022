@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/erizo.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 29.0172
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource( 2 )
+frames = SubResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = ExtResource( 1 )
+animation = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

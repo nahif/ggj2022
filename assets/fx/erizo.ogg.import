@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/erizo.ogg-f9aec8421eb22d5e4594fb3d4969e602.oggstr"
+
+[deps]
+
+source_file="res://assets/fx/erizo.ogg"
+dest_files=[ "res://.import/erizo.ogg-f9aec8421eb22d5e4594fb3d4969e602.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
