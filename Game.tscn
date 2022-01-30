@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/PinguDadScene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Referencia.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/music/main_theme_ogg.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scenes/PinguMomScene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/music/main_theme.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scripts/Game.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/barra.png" type="Texture" id=6]
+[ext_resource path="res://assets/fx/agua.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/font/Gumball.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/sprites/pinguino.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 27
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 8 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 5 )
@@ -17,12 +27,13 @@ position = Vector2( 0, -329 )
 position = Vector2( 0, 269 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -24.042
+stream = ExtResource( 2 )
+volume_db = -24.47
+autoplay = true
 
 [node name="Barra" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.411765 )
-position = Vector2( 511.75, 291.75 )
+position = Vector2( 511.75, 289.144 )
 scale = Vector2( 2.47831, 0.794118 )
 texture = ExtResource( 6 )
 
@@ -43,26 +54,45 @@ __meta__ = {
 }
 
 [node name="Puntaje" type="Label" parent="."]
-margin_left = 157.0
-margin_top = 280.0
-margin_right = 205.0
-margin_bottom = 294.0
+margin_left = 313.0
+margin_top = 273.374
+margin_right = 421.0
+margin_bottom = 301.374
+custom_fonts/font = SubResource( 1 )
 text = "puntaje"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Vida" type="Label" parent="."]
-margin_left = 844.0
-margin_top = 280.0
-margin_right = 902.0
-margin_bottom = 294.0
-text = "vida: 100"
+margin_left = 636.0
+margin_top = 273.8
+margin_right = 727.0
+margin_bottom = 317.8
+custom_fonts/font = SubResource( 2 )
+text = "X4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ppp" parent="." instance=ExtResource( 2 )]
-visible = false
+[node name="aqua" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -37.666
+pitch_scale = 0.67
+autoplay = true
+
+[node name="Pinguino" type="Sprite" parent="."]
+position = Vector2( 615, 289.8 )
+scale = Vector2( 0.437501, 0.437501 )
+texture = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BlackScreen" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 527, 308 )
+scale = Vector2( 2.66867, 12.7353 )
+texture = ExtResource( 6 )
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

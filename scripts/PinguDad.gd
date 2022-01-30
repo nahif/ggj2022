@@ -1,7 +1,7 @@
 extends Node2D
 
 var velocity = 500
-var damage_jump = 700
+var damage_jump = 800
 var min_velocity = 0.01
 var inertia = 9
 var vel : Vector2
@@ -37,6 +37,8 @@ func _on_PinguDad_area_entered(area):
 		vel = Vector2.RIGHT * damage_jump
 	life -= damage
 	$AnimatedSprite.play("hit")
+	$wek.play()
+	$huevo.play()
 	emit_signal("is_been_damage")
 
 func _on_AnimatedSprite_animation_finished():

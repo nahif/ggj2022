@@ -6,10 +6,11 @@ var speed = 600
 var is_moving = false
 
 export(int) var fishValue = 1
-export(Texture) var texture
+export(SpriteFrames) var frames
 
 func _ready():
-	$Sprite.texture = texture
+	$Sprite.frames = frames
+	$Sprite.play("idle")
 
 func start(new_position):
 	position = new_position

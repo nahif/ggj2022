@@ -1,8 +1,15 @@
 extends Node2D
 
 var random
-var min_time = 0.6
-var max_time = 1.5
+var times = [
+	0.5,
+	0.5,
+	0.75,
+	1,
+	1.25,
+	1.5,
+	2
+]
 
 func _ready():
 	random = RandomNumberGenerator.new()
@@ -11,4 +18,9 @@ func _ready():
 func _on_JumpTimer_timeout():
 	$PinguWallR.jump()
 	$PinguWallL.jump()
-	$JumpTimer.start(random.randi_range(min_time, max_time))
+	var _times = times
+	if $PinguWallL.position.x < $PositionMinWall.position.x:
+		_times = _times.slice(0, 4)
+	elif $PinguWallR.position.x > $PositionMaxWall.position.x:
+		_times = _times.slice(2, 6)
+	$JumpTimer.start(_times[randi() % _times.size()])

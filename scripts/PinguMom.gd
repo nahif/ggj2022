@@ -43,6 +43,11 @@ func _on_PinguMom_area_entered(area):
 		actual_damage_time = damage_time
 		life -= damage
 		is_damage = true
+		$AnimationSprite.play("hit")
+		$wek.play()
 		emit_signal("damage")
 	area.get_parent().remove_child(area)
 
+
+func _on_AnimationSprite_animation_finished():
+	$AnimationSprite.play("idle")

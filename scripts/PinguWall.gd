@@ -4,7 +4,7 @@ var constant_velocity = Vector2.LEFT * 60
 var velocity = 600
 var inertia = 9
 var vel : Vector2
-var second_animation_offset = 512 
+var second_animation_offset = 485 
 export(bool) var is_right
 
 func _ready():
