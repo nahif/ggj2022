@@ -1,11 +1,12 @@
 extends Node
 
 var life = 4
-var winScene = preload("res://Win.tscn")
+export(int) var max_life = 4
 var gameover = false
 
 func _ready():
 	$Music.play()
+	life = max_life
 	# se incluyen variables para sacar los warnings
 	var _c1 = $PinguMomScene/PinguMom.connect("new_point", self, "_on_points_change")
 	var _c2 = $PinguMomScene/PinguMom.connect("damage", self, "_on_get_damage")
@@ -17,6 +18,8 @@ func _process(delta):
 
 func _on_Music_finished():
 	global.point = $PinguMomScene/PinguMom.points
+	if life == max_life:
+		global.perfect = true
 	remove_child($PinguDadScene)
 	remove_child($PinguMomScene)
 	var _cs1 = get_tree().change_scene("res://Win.tscn")
@@ -40,3 +43,4 @@ func _has_game_over():
 
 func _on_Timer_timeout():
 	var _c1 = get_tree().change_scene("res://GameOver.tscn")
+

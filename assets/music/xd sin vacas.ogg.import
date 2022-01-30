@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/xd sin vacas.ogg-a14797f822b79430953d4b61f96c715c.oggstr"
+
+[deps]
+
+source_file="res://assets/music/xd sin vacas.ogg"
+dest_files=[ "res://.import/xd sin vacas.ogg-a14797f822b79430953d4b61f96c715c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

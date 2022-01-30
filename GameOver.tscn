@@ -2,10 +2,10 @@
 
 [ext_resource path="res://assets/sprites/barra.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/pantallas/perder.png" type="Texture" id=2]
-[ext_resource path="res://assets/music/gameover_ogg.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/game over long.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scripts/GameOver.gd" type="Script" id=4]
 [ext_resource path="res://assets/font/Gumball.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/fx/bep.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/fx/bep.ogg" type="AudioStream" id=6]
 [ext_resource path="res://scripts/Restart.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -38,9 +38,8 @@ volume_db = -20.974
 autoplay = true
 
 [node name="Points" type="Label" parent="."]
-margin_left = 91.0
 margin_top = 192.0
-margin_right = 933.0
+margin_right = 1024.0
 margin_bottom = 356.0
 custom_fonts/font = SubResource( 1 )
 text = "GAmeover"
@@ -52,13 +51,14 @@ __meta__ = {
 
 [node name="Restart" type="Label" parent="."]
 visible = false
-margin_left = 338.0
 margin_top = 417.0
-margin_right = 682.0
+margin_right = 1024.0
 margin_bottom = 502.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 text = "Restart"
+align = 1
+valign = 1
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false

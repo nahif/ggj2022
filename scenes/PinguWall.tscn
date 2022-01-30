@@ -61,7 +61,7 @@
 [ext_resource path="res://assets/sprites/pinguWall/walk/Render Muro Walk_00061.png" type="Texture" id=59]
 [ext_resource path="res://assets/sprites/pinguWall/walk/Render Muro Walk_00063.png" type="Texture" id=60]
 [ext_resource path="res://assets/sprites/pinguWall/hitL/Render Muro Hit A_00001.png" type="Texture" id=61]
-[ext_resource path="res://assets/fx/cow.wav" type="AudioStream" id=62]
+[ext_resource path="res://assets/fx/cow.ogg" type="AudioStream" id=62]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -103,7 +103,7 @@ playing = true
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 18
+frame = 20
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -112,7 +112,7 @@ shape = SubResource( 1 )
 
 [node name="cow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 62 )
-volume_db = -34.75
+volume_db = -27.758
 
 [connection signal="area_entered" from="." to="." method="_on_PinguWallL_area_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

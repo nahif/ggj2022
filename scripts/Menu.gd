@@ -6,7 +6,6 @@ var preload_game = preload("res://Game.tscn")
 
 func _ready():
 	$Start.modulate.a = 0.9
-	pass
 
 func _process(delta):
 	$Start.rect_position += direction * speed * delta
@@ -17,7 +16,7 @@ func _process(delta):
 
 func _on_Start_gui_input(event):
 	if (event is InputEventMouseButton && event.pressed && event.button_index == 1):
-		var _c1 = get_tree().change_scene_to(preload_game)
+		global.go_to_scene_game()
 
 func _on_Start_mouse_entered():
 	$Start.modulate.a = 1

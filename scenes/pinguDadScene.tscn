@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/sprites/pinguDad/idle/Render Papa Idel_00016.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PinguDad.gd" type="Script" id=2]
-[ext_resource path="res://assets/fx/paso pandero.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/fx/paso pandero.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/PinguWall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprites/pinguDad/idle/Render Papa Idel_00005.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/pinguDad/idle/Render Papa Idel_00006.png" type="Texture" id=6]
@@ -60,8 +60,8 @@
 [ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (Nube).png" type="Texture" id=58]
 [ext_resource path="res://assets/sprites/background/dadBackground/Juego 2 Fondo (Nieve).png" type="Texture" id=59]
 [ext_resource path="res://scripts/Background.gd" type="Script" id=60]
-[ext_resource path="res://assets/fx/wenk 2.wav" type="AudioStream" id=61]
-[ext_resource path="res://assets/fx/hueo.wav" type="AudioStream" id=62]
+[ext_resource path="res://assets/fx/wenk 2.ogg" type="AudioStream" id=61]
+[ext_resource path="res://assets/fx/hueo.ogg" type="AudioStream" id=62]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -88,6 +88,16 @@ radius = 38.1182
 script = ExtResource( 55 )
 
 [node name="Background" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 57 )
+centered = false
+
+[node name="BaseNieve" type="Sprite" parent="Background"]
+position = Vector2( 0, 329 )
+texture = ExtResource( 59 )
+centered = false
 
 [node name="Sky" type="Sprite" parent="Background"]
 position = Vector2( 0, 329 )
@@ -154,6 +164,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinguDad"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hueo.ogg-999ff5b16ddbd8be491d69d6b3e843af.oggstr"
+
+[deps]
+
+source_file="res://assets/fx/hueo.ogg"
+dest_files=[ "res://.import/hueo.ogg-999ff5b16ddbd8be491d69d6b3e843af.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
