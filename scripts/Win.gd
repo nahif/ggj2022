@@ -7,6 +7,11 @@ func _ready():
 		$Points.visible = false
 
 func _on_Timer_timeout():
-	$Points.text = str(global.point) + " puntos"
+	$Points.text = "score: " + str(global.point)
 	$Points.visible = true
 	$Restart.visible = true
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") || event.is_action_pressed("ui_select"):
+		$bep.play()
+		global.go_to_scene_game()

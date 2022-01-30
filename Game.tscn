@@ -29,7 +29,7 @@ position = Vector2( 0, 269 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -19.226
+volume_db = -15.73
 autoplay = true
 
 [node name="Barra" type="Sprite" parent="."]
@@ -60,7 +60,7 @@ margin_top = 273.374
 margin_right = 421.0
 margin_bottom = 301.374
 custom_fonts/font = SubResource( 1 )
-text = "puntaje"
+text = "score:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

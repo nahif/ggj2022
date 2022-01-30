@@ -25,7 +25,7 @@ func _on_Music_finished():
 	var _cs1 = get_tree().change_scene("res://Win.tscn")
 
 func _on_points_change(value: int):
-	$Puntaje.text = "puntaje: " + str(value)
+	$Puntaje.text = "score: " + str(value)
 
 func _on_get_damage():
 	life -= 1
@@ -37,10 +37,10 @@ func _on_get_damage():
 func _has_game_over():
 	if life < 0:
 		gameover = true
-		global.point = $PinguMomScene/PinguMom.points
 		$Timer.start(2)
 		set_process(true)
 
 func _on_Timer_timeout():
+	global.point = $PinguMomScene/PinguMom.points
 	var _c1 = get_tree().change_scene("res://GameOver.tscn")
 
